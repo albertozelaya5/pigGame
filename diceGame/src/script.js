@@ -13,9 +13,18 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+const images = [
+  new URL('../public/assets/dice-1.png', import.meta.url),
+  new URL('../public/assets/dice-2.png', import.meta.url),
+  new URL('../public/assets/dice-3.png', import.meta.url),
+  new URL('../public/assets/dice-4.png', import.meta.url),
+  new URL('../public/assets/dice-5.png', import.meta.url),
+  new URL('../public/assets/dice-6.png', import.meta.url),
+];
+
 // document.getElementById("score--1").textContent = "nu"
 
-//Starting conditons
+//Starting conditions
 let scores, currentScore, activePlayer, playing; //*Se inicializan los valores para luego setearlos en el llamado a la funcuion
 
 const init = function () {
@@ -54,7 +63,8 @@ btnRoll.addEventListener('click', function () {
 
     // 2. Display dice
     diceEl.classList.remove('hidden');
-    diceEl.src = `dice-${dice}.png`;
+    // diceEl.src = `dice-${dice}.png`;
+    diceEl.src = images[dice - 1];
 
     // 3. Check for rolled 1
     if (dice !== 1) {
